@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Supermercado
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4 mt-2 text-center">
+        <h2>Supermercado</h2>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <img src="{% static 'images/catalogo.jpg' %}" class="w-100" alt="" />
+  </div>
+<div class="container">
+    <div class="row text-center">
+      {% for p in productos %}
+      <div class="col text-center">
+        <div class="bg-primario">
+          <img
+            class="rounded-circle"
+            style="width: 140px; height: 140px"
+            src="{{p.imagenProducto}}"
+            data-holder-rendered="true"
+          />
+          <h3>{{p.nombreProducto}}</h3>
+          <h4>${{p.precioProducto}}</h4>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

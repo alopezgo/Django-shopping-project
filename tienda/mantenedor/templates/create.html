@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+Crear Producto
+{% endblock title %}
+
+{% block content %}
+
+<div class="text-center mt-3">
+        <h1>Agrega un Producto</h1>
+    </div>
+    <div class="container w-50 uso-completo">
+        <form method="post" action="" id="formulario">
+            {% csrf_token %}
+            <div class="form-group row mb-3">{{ form.as_table }}</div>
+            <br>
+            <div>
+                <input type="submit" class="btn btn-danger" id="enviar" value="Enviar" />
+                <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar" />
+            </div>
+        </form>
+    </div>
+    {% comment %} <div class="alert alert success" role="alert">{{mensaje}}</div>
+    </div> {% endcomment %}
+
+{% endblock content %}

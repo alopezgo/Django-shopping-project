@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}
+Listado de Productos
+{% endblock title %}
+
+{% block content %}
+
+<div class="text-center mt-3">
+      <h1>Listado de Productos</h1>
+    </div>
+    <div class="container w-50 uso-completo">
+      <div class="'row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Nombre</td>
+              <td>Marca</td>
+              <td>Categoria</td>
+              <td>Precio</td>
+              <td>Imagen</td>
+              <td colspan="2">Opciones</td>
+            </tr>
+          </thead>
+          {% for p in productos %}
+          <tbody>
+            <tr>
+              <td>{{p.idProducto}}</td>
+              <td>{{p.nombreProducto}}</td>
+              <td>{{p.pymeProducto}}</td>
+              <td>{{p.categoriaProducto}}</td>
+              <td>{{p.precioProducto}}</td>
+              <td><img src="{{p.imagenProducto}}" class="m-auto w-50" /></td>
+              {% comment %} <td>
+                <a href="{% url 'form_mod_productos' p.idproducto %}"
+                  >Modificar</a
+                >
+              </td>
+              <td>
+                <a href="{% url 'form_del_productos' p.idproducto %}"
+                  >Eliminar</a
+                >
+              </td> {% endcomment %}
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+        <a href="{% url 'mantenedor:crear' %}">Nuevo Producto</a>
+      </div>
+
+{% endblock content %}

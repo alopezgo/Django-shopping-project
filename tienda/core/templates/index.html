@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Compra&Compara
+{% endblock title %}
+
+
+{% block content %}
+<div>
+  <div class="img-fluid">
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="#" id="fotoTienda">
+            <img
+              src="{% static 'images/carrusel/banner1.png' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="#" id="fotoDona">
+            <img
+              src="{% static 'images/carrusel/banner2.png' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="#" id="fotoNosotros">
+            <img
+              src="{% static 'images/carrusel/banner3.png' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="#" id="fotoContacto">
+            <img
+              src="{% static 'images/carrusel/banner4.jpeg' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </a>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- carrusel imagenes -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4 mt-2 text-center">
+        <br>
+        <h3>CATEGORÍAS</h3>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <img src="{% static 'images/catalogo.jpg' %}" class="w-100" alt="" />
+  </div>
+  <div class="container">
+    <div class="row text-center">
+      {% for c in categorias %}
+      <div class="col text-center">
+        <div class="bg-primario">
+          <h3>{{c.nombreCategoria}}</h3>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+{% comment %}     
+        {% for p in productos %}
+        <h3>{{ p }}</h3>
+        <a href="{% url 'core:show' p.idProducto%}">
+        Ver
+        </a>
+        {% endfor %}
+
+    <nav aria-label="Page navigation example">
+    <ul class="pagination" >
+
+        <li class="page-item" >
+    
+        {% if productos.has_previous %}
+            <a class="page-link" href="?pag={{ productos.previous.page_number }}">
+            Preview</a>
+        
+        {% endif %}
+
+        {% for i in productos.paginator.page_range %}
+            <a class="page-link" href="?pag={{ i }}">{{i}}</a> 
+        {% endfor %}
+
+            {% if productos.has_next %}
+            <a class="page-link" href="?pag={{ productos.next_page_number }}">
+            Next</a> 
+        {% endif %}
+        </li>
+    </ul>
+    </nav> {% endcomment %}
+</div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Detalle Producto
+{% endblock title %}
+
+{% block content %}
+
+<nav>
+    <h1>
+        {{producto.nombreProducto}}
+    </h1>
+    <p>{{producto.categoriaProducto.nombreCategoria}}</p>
+    <p>{{producto.descripcionProducto}}</p>
+    <p>{{producto.precioProducto}}</p>
+</nav>
+
+{% endblock  %}
+    
