@@ -3,7 +3,7 @@
 :root {
     --primario: #df390f;
     --secundario: #ffffff;
-    --terciario: #eedf11;
+    --terciario: hwb(56 12% 63%);
 }
 
 body {
