@@ -10,6 +10,8 @@ Listado de Productos
     </div>
     <div class="container w-50 uso-completo">
       <div class="'row">
+      <a href="{% url 'mantenedor:crear' %}">Nuevo Producto</a>
+      <br>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -45,7 +47,7 @@ Listado de Productos
           </tbody>
           {% endfor %}
         </table>
-        <a href="{% url 'mantenedor:crear' %}">Nuevo Producto</a>
+        
       </div>
 
 {% endblock content %}
