@@ -5,5 +5,5 @@ app_name = 'mantenedor'
 
 urlpatterns = [
     path('listar', views.listar, name="listar"),
-    path('crear', views.crear_form, name="crear"),
+    path('crear', views.crear_producto, name="crear"),
     ]
