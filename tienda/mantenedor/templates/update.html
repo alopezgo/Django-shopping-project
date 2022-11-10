@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+Modificar Producto
+{% endblock title %}
+
+{% block content %}
+
+<div class="text-center mt-3">
+        <h1>Actualizar información de Productos</h1>
+    </div>
+    <div class="container w-50 uso-completo">
+        <form method="post" action="" id="formulario">
+            {% csrf_token %}
+            <div class="form-group row">
+                {{form.as_table}}
+            </div>
+            <br>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-danger" id="enviar" value="Modificar" />
+                <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar" />
+            </div>
+            <a href="{% url 'mantenedor:listar' %}">
+                <h5>Volver</h5>
+            </a>
+        </form>
+    </div>
+    <div class="alert alert success" role="alert">{{datos.mensaje}}</div>
+
+{% endblock content %}

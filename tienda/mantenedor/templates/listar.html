@@ -33,16 +33,16 @@ Listado de Productos
               <td>{{p.categoriaProducto}}</td>
               <td>{{p.precioProducto}}</td>
               <td><img src="{{p.imagenProducto}}" class="m-auto w-50" /></td>
-              {% comment %} <td>
-                <a href="{% url 'form_mod_productos' p.idproducto %}"
+             <td>
+                <a href="{% url 'mantenedor:modificar' p.idProducto %}"
                   >Modificar</a
                 >
               </td>
-              <td>
+              {% comment %} <td>
                 <a href="{% url 'form_del_productos' p.idproducto %}"
                   >Eliminar</a
                 >
-              </td> {% endcomment %}
+              </td>  {% endcomment %}
             </tr>
           </tbody>
           {% endfor %}
