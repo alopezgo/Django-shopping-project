@@ -1,9 +1,13 @@
+{% extends "base.html" %}
 {% load static %}
+{% block title %}
+Registro
+{% endblock title %}
 
-<body>
-    <div>{% include 'core\components\common\navbar.html' %}</div>
+
+{% block content %}
     <div class="text-center mt-3">
-        <h1>Crear una cuenta</h1>
+        <h1>Crea una cuenta</h1>
     </div>
     <div class="container w-25 uso-completo">
         <form class="row g-3 form needs-validation" id="formulario" method="POST" novalidate>
@@ -15,5 +19,5 @@
         </form>
     </div>
     <script src="{% static 'js/main.js' %}"></script>
-</body>
-<div>{% include 'core\components\common\footer.html' %}</div>
+{% endblock %}
+

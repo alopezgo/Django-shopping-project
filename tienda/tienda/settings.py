@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'core',
     'mantenedor',
     'registro',
-    # 'rest_framework',
+    'rest_framework',
+    'rest_productos',
     # 'rest_framework.authtoken',
 ]
 

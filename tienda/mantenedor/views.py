@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from core.models import Producto
-from .forms import crearProductoForm
+from .forms import ProductosForm
 from django.contrib.auth.decorators import login_required
-# import ipdb; ipdb.set_trace()
 # Create your views here.
 
 @login_required
@@ -14,43 +13,48 @@ def listar (request):
 def crear_producto (request):
     
     datos = {
-        'form' : crearProductoForm()
+        'form' : ProductosForm()
         }
     if request.method == 'POST':
-        formulario = crearProductoForm(request.POST, request.FILES)
-        print('entro primer if')
+        formulario = ProductosForm(request.POST, request.FILES)
         if formulario.is_valid():
-            try:
-                print('entro segundo if')
-                formulario.save()
-                datos['mensaje'] = 'Producto almacenado correctamente'
-                redirect ("listar")
-            except: print('NO SE CREÓ EL PRODUCTO')
+            formulario.save()
+            return redirect(to="listado_productos")
     
-    return render(request, 'create.html', datos)
+    return render(request, 'listar.html', datos)
 
 @login_required
 def modificar_producto (request, id):
     producto = Producto.objects.get(idProducto=id)
-    print(producto)
     datos = {
-        'form': crearProductoForm(instance=producto)
+        'form': ProductosForm(instance=producto)
     }
-    print("entro a la funcion")
-    print(datos)
     
     if request.method == 'POST':
-        formulario = crearProductoForm(data=request.POST,  instance=producto)
-        print(formulario)
+        formulario = ProductosForm(data=request.POST,  instance=producto)
         if formulario.is_valid:
             formulario.save()
             datos['mensaje'] = 'Producto modificado correctamente'
-            print("me modifico")
     
-    return render(request, 'update.html', datos)
+    return render(request, 'listar.html', datos)
 
 @login_required
 def eliminar_producto (request, id):
-    producto = Producto.objects.get(idProducto=id)
+    producto = Producto.objects.get(idproducto=id)
     producto.delete()
-    return redirect("listar")
+    if request.method == 'DELETE':
+        formulario = ProductosForm(data=request.DELETE, instance=producto)
+
+        if formulario.is_valid:
+            formulario.save()
+
+    return redirect(to="listado_productos")
+
+def listado_productos(request):
+    r = request.get('http://127.0.0.1:8000/api/lista-productos')
+
+    datos = {
+        'productos': r.json()
+    }
+
+    return render(request, 'listar.html', datos)

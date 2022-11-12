@@ -36,12 +36,3 @@ def tienda(request):
     
     return render(request, 'tienda.html', { 'productos': allproducts })
 
-def show(request, id):
-    
-    try:
-        producto = Producto.objects.get(idProducto=id)
-    except Producto.DoesNotExist:
-         return HttpResponse(status=404)
-    
-    return render(request, 'show.html', { 'producto': producto })
-

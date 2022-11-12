@@ -11,8 +11,8 @@ Crear Producto
     <div class="container w-50 uso-completo">
         <form method="post" action="" id="formulario">
             {% csrf_token %}
-            <div class="form-group row mb-3">
-            {{ form.as_table }}
+            <div class="form-group row">
+                {{form.as_table}}
             </div>
             <br>
             <div>
@@ -24,4 +24,4 @@ Crear Producto
     <div class="alert alert success" role="alert">{{mensaje}}</div>
     </div> 
 
-{% endblock content %}
+{% endblock %}
