@@ -73,3 +73,71 @@ class Producto(models.Model):
     
     def __str__(self) -> str:
         return self.nombreProducto
+
+class Cliente(models.Model):
+    idCliente = models.AutoField(primary_key=True, verbose_name='ID Cliente')
+    rutCliente = models.IntegerField(max_length= 12, verbose_name= 'Rut Cliente')
+    nombreCliente= models.CharField(max_length=50, verbose_name='Nombre Cliente')
+    apellidoCliente= models.CharField(max_length=50, verbose_name='Apellido Cliente')
+    correoCliente= models.EmailField(max_length=50, verbose_name='Correo Cliente')
+    direccionCliente= models.CharField(max_length=50, verbose_name='Direccion Cliente')
+    telefonoCliente= models.IntegerField(max_length=9, verbose_name='Telefono Cliente')
+
+    def __str__(self) -> str:
+        return self.nombreCliente
+    
+class registro(models.Model):
+    idUsuario = models.AutoField(primary_key=True, verbose_name='ID Usuario')
+    nombreUsuario= models.CharField(max_length=50, verbose_name='Nombre Usuario')
+    correoUsuario= models.EmailField(max_length=50, verbose_name='Correo Usuario')
+    contraseñaUsuario= models.CharField(max_length=50, verbose_name='Contraseña Usuario')
+    telefonoUsuario= models.IntegerField(max_length=9, verbose_name='Telefono')
+
+    def __str__(self) -> str:
+        return self.idUsuario
+
+class venta(models.Model):
+    idVenta = models.AutoField(primary_key=True, verbose_name='ID Venta')
+    idProducto=models.ForeignKey(Producto,on_delete=models.CASCADE)
+    idCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    idPyme = models.ForeignKey(EmpresaPyme, on_delete=models.C)
+    cantidadProducto= models.PositiveIntegerField(verbose_name='Cantidad de producto')
+    totalVenta = models.PositiveIntegerField(verbose_name='Total venta')
+
+    def __str__(self) -> str:
+        return self.idVenta
+
+class delivery(models.Model):
+    idDelivery = models.AutoField(primary_key=True, verbose_name='ID delivery')
+    comentarioDelivery= models.CharField(max_length=50, verbose_name='Comentario delivery')
+    idventa=models.ForeignKey(venta,on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.idDelivery
+
+
+class boleta(models.Model):
+    idBoleta = models.AutoField(primary_key=True, verbose_name='ID Boleta')
+    idVenta=models.ForeignKey(venta,on_delete=models.CASCADE)
+    fechaBoleta= models.DateTimeField(verbose_name='Fecha de Boleta')
+
+    def __str__(self) -> str:
+        return self.idBoleta
+
+class pagoPyme(models.model):
+    idPago = models.AutoField(primary_key=True, verbose_name='ID Pago')
+    idPyme =models.ForeignKey(EmpresaPyme, on_delete=models.CASCADE)
+    montoTotal= models.IntegerField(verbose_name='monto Pago')
+    fechaPago=models.DateField(verbose_name='fecha Pago')
+    def __str__(self) -> str:
+        return self.idPago
+
+class comentarioProducto (models.Model):
+    idComentario= models.AutoField(primary_key=True, verbose_name='ID Comentario')
+    idVenta=models.ForeignKey(venta,verbose_name='id Venta')
+    idCliente=models.ForeignKey(Cliente,verbose_name='id Cliente')
+    comentarioProducto=models.CharField(max_length=500, verbose_name='Comentario Produto')
+    valoracion=models.PositiveIntegerField(max_integer=5, verbose_name='Valoracion')
+
+    def __str__(self) -> str:
+        return self.idComentario

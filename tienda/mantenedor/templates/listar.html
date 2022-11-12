@@ -38,11 +38,11 @@ Listado de Productos
                   >Modificar</a
                 >
               </td>
-              {% comment %} <td>
-                <a href="{% url 'form_del_productos' p.idproducto %}"
+              <td>
+                <a href="{% url 'mantenedor:eliminar' p.idProducto %}"
                   >Eliminar</a
                 >
-              </td>  {% endcomment %}
+              </td> 
             </tr>
           </tbody>
           {% endfor %}

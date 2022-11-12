@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from core.models import Producto
 from .forms import crearProductoForm
+# import ipdb; ipdb.set_trace()
 # Create your views here.
 
 def listar (request):
@@ -14,10 +15,14 @@ def crear_producto (request):
         }
     if request.method == 'POST':
         formulario = crearProductoForm(request.POST, request.FILES)
+        print('entro primer if')
         if formulario.is_valid():
-            formulario.save()
-            formulario['mensaje'] = 'Producto almacenado correctamente'
-            return redirect("listar")
+            try:
+                print('entro segundo if')
+                formulario.save()
+                datos['mensaje'] = 'Producto almacenado correctamente'
+                redirect ("listar")
+            except: print('NO SE CREÓ EL PRODUCTO')
     
     return render(request, 'create.html', datos)
 
@@ -39,3 +44,8 @@ def modificar_producto (request, id):
             print("me modifico")
     
     return render(request, 'update.html', datos)
+
+def eliminar_producto (request, id):
+    producto = Producto.objects.get(idProducto=id)
+    producto.delete()
+    return redirect("listar")

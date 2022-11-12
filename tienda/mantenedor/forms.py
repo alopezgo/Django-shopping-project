@@ -5,5 +5,4 @@ from core.models import Producto
 class crearProductoForm(ModelForm):
     class Meta:
         model = Producto
-        fields = "__all__"
-        # fields = ['nombreProducto', 'descripcionProducto', 'categoriaProducto', 'activoProducto', 'precioProducto', 'imagenProducto', 'stockProducto', 'pymeProducto']
+        fields = ['nombreProducto', 'descripcionProducto', 'categoriaProducto', 'activoProducto', 'precioProducto', 'imagenProducto', 'stockProducto', 'pymeProducto']

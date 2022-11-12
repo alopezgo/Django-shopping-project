@@ -12,7 +12,8 @@ Crear Producto
         <form method="post" action="" id="formulario">
             {% csrf_token %}
             <div class="form-group row mb-3">
-            {{ form.as_table }}</div>
+            {{ form.as_table }}
+            </div>
             <br>
             <div>
                 <input type="submit" class="btn btn-danger" id="enviar" value="Enviar" />
@@ -20,7 +21,7 @@ Crear Producto
             </div>
         </form>
     </div>
-    <div class="alert alert success" role="alert">{{datos.mensaje}}</div>
+    <div class="alert alert success" role="alert">{{mensaje}}</div>
     </div> 
 
 {% endblock content %}
