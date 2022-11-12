@@ -1,9 +1,19 @@
-{% extends "base.html" %}
-{% block title %}
-Registrate
-{% endblock title %}
+{% load static %}
 
-{% block content %}
-
-
-{% endblock content %}
+<body>
+    <div>{% include 'core\components\common\navbar.html' %}</div>
+    <div class="text-center mt-3">
+        <h1>Crear una cuenta</h1>
+    </div>
+    <div class="container w-25 uso-completo">
+        <form class="row g-3 form needs-validation" id="formulario" method="POST" novalidate>
+            {% csrf_token %}
+            {{ form }}
+            <div>
+                <button type="submit" class="btn btn-success" id="crear">Crear</button>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+<div>{% include 'core\components\common\footer.html' %}</div>

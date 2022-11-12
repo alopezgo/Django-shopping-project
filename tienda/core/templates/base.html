@@ -51,6 +51,15 @@
             >Inicio</a
           >
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            id="div-btn1"
+            href="{% url 'core:nosotros' %}"
+            >Nosotros</a
+          >
+        </li> 
         
         <li class="nav-item">
           <a
@@ -62,9 +71,9 @@
           >
         </li> 
         
-        {% comment %} {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" id="div-btn7" href="{% url 'perfil' %}">Mi Perfil</a>
+            <a class="nav-link active" aria-current="page" id="div-btn7" href="{% url 'registro:perfil' %}">Mi Perfil</a>
           </li> 
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" id="div-btn8" href="/logout">Cerrar Sesión</a>
@@ -74,17 +83,26 @@
             <a class="nav-link active border border-secondary" 
             aria-current="page" 
             id="div-btn6" 
-            href="{% url 'login' %}"
+            href="{% url 'registro:login' %}"
             >Inicia Sesión</a
             >
-          </li> {% endcomment %}
-
+          {% endif %}
+          </li>
+        
+        {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link active" 
-          aria-current="page" 
-          id="div-btn1" 
-          href="{% url 'registro:registro' %}">Registrate</a>
-        </li>
+            <a class="nav-link active" aria-current="page" id="div-btn7" href="{% url 'mantenedor:listar' %}">SoyPyme</a>
+          </li> 
+        {% comment %} {% else %} 
+          <li>
+            <a class="nav-link active border border-secondary" 
+            aria-current="page" 
+            id="div-btn6" 
+            href="{% url 'registro:login' %}"
+            >Inicia Sesión</a
+            > {% endcomment %}
+          {% endif %}
+          </li>
         
         </ul>
         

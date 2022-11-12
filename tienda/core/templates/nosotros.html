@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Nosotros
+{% endblock title %}
+
+{% block content %}
+  <div class="container ">
+    <img src="{% static 'images/nosotros.jpg' %}" class="rounded-personalizado w-100" alt="">
+  </div>
+
+<div class="container w-100">
+  <div class="text-center bg-primario m-4">
+    <h3 style="color: aliceblue;">Madelaine Escobar</h3>
+    <p class="">Encargada del diseño de la página junto con las imágenes y diferentes estilos entregados para darle color y versatilidad a la pagina.</p>
+  </div>
+  <div class="text-center bg-primario m-4">
+    <h3 style="color: aliceblue;" >Jordan Bolbarán</h3>
+    <p class="">Encargado del front-end de la pagina llevando el diseño a codigo HTML5 y CSS3 y JS.</p>
+  </div>
+  <div class="text-center bg-primario m-4">
+    <h3 style="color: aliceblue;" >Andrea López</h3>
+    <p class="">Encargada del Back-end creando nuestra API para ser utilizada por el front-end. Manejo de base de datos.</p>
+  </div>
+</div>
+
+    {% endblock  %}

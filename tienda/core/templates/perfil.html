@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Mi Perfil
+{% endblock title %}
+
+{% block content %}
+
+    <div class="text-center mt-3">
+        {% comment %} <h1>Hola {{user.username}}</h1>
+    </div>
+    <div class="container w-50 uso-completo">
+        <div class="'row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>nombre</td>
+                        <td colspan="2">correo</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> {% endcomment %}
+    </div>
+    {% endblock  %}
