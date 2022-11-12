@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categoria, EmpresaPyme, Producto
+from .models import Categoria, EmpresaPyme, Producto, Cliente
 
 
 # Register your models here.
@@ -15,4 +15,7 @@ class ProductoAdmin (admin.ModelAdmin):
     list_display = ('idProducto', 'nombreProducto', 'categoriaProducto', 'pymeProducto','precioProducto', 'stockProducto')
     list_filterm = ('activoProducto','pymeProducto', 'categoriaProducto')
 admin.site.register(Producto, ProductoAdmin)
+
+admin.site.register(Cliente)
+
 

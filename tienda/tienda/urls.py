@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_productos import views as v
+from rest_productos import viewsLogin as vl
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("core.urls")),
     path('',include("mantenedor.urls")),
     path('',include("registro.urls")),
-    path('api/', include('rest_productos.urls')),
+    path('api/', v.lista_productos, name="lista_productos"),
+    path('login', vl.login, name="login"),
     path('',include('django.contrib.auth.urls')),
 ]

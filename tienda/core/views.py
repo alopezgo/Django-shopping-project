@@ -4,8 +4,6 @@ from django.http import HttpResponse, HttpResponseNotFound
 from .models import Producto, Categoria
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
 def index(request):
 
     categorias = Categoria.objects.all()    
@@ -17,11 +15,6 @@ def nosotros(request):
 
 def contacto(request):
     return render(request, 'contacto.html')
-
-@login_required
-def perfil(request):
-    return render(request, 'perfil.html')
-    
 
 def tienda(request):
     page_number = request.GET.get('page')
@@ -35,4 +28,8 @@ def tienda(request):
         allproducts = allproducts_page.page(1)        
     
     return render(request, 'tienda.html', { 'productos': allproducts })
+
+@login_required
+def perfil(request):
+    return render(request, 'perfil.html')
 

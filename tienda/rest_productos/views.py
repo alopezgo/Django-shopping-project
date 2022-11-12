@@ -5,9 +5,9 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from core.models import Producto
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import check_password
 from .serializers import ProductoSerializer
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
 @api_view(['GET', 'POST'])
@@ -30,4 +30,3 @@ def lista_productos(request):
             return Response(serializer.data, statuts=status.HTTP_201_CREATED)
         else:
             return Response(serializer.data, statuts=status.HTTP_400_BAD_REQUEST)
-
