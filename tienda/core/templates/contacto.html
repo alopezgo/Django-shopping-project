@@ -6,13 +6,15 @@ Contacto
 
 
 {% block content %}
-    <form
+<h3>Ingresa tus datos</h3>
+    <form class="formulario"
       class="row g-3 form needs-validation"
       id="formulario"
       method="POST"
       novalidate
     >
       {% csrf_token %}
+      <div class="">
 
       <div class="form-group" >
         <label for="nombre" class="form-label">Nombres</label>
@@ -75,14 +77,17 @@ Contacto
         <label for="comuna" class="form-label">Comuna</label>
         <select class="form-control" id="comunas" required></select>
       </div>
-      <div>
+      <div align="center">
         {{ form }}
         <button type="submit" class="btn btn-primary" id="envio">Enviar</button>
       </div>
     </form>
   </div>
+</div >
   <div class="container text-center">
     <h4>Nos contactaremos con ud. a la brevedad</h4>
   </div>
  
  {% endblock content %}
+
+ 

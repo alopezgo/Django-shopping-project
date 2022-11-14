@@ -80,3 +80,12 @@ h6{
     color:rgb(48, 41, 41);
     text-align: center;
 }
+.formulario {
+        font-size: 120%;
+        text-align: left;
+        width : auto;
+        margin-left: 10%;
+        margin-right: 10%;
+        color: rgb(83, 55, 54);
+}
+
