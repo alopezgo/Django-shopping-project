@@ -6,6 +6,7 @@
     --terciario: #a18c8c;
 }
 
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -60,7 +61,7 @@ body {
 }
 
 .rounded-personalizado {
-    border-radius: 30px;
+    border-radius: 25px;
 }
 
 .margin {
@@ -86,6 +87,7 @@ h6{
         width : auto;
         margin-left: 10%;
         margin-right: 10%;
-        color: rgb(83, 55, 54);
+        color: #533736;
+        background-color: #d8b7b6;
 }
 

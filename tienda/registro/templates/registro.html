@@ -9,12 +9,12 @@ Registro
     <div class="text-center mt-3">
         <h1>Crea una cuenta</h1>
     </div>
-    <div class="container w-25 uso-completo">
-        <form class="row g-3 form needs-validation" id="formulario" method="POST" novalidate>
+    <div >
+        <form class="formulario" class="row g-3 form needs-validation" method="POST" novalidate>
             {% csrf_token %}
             {{ form }}
-            <div>
-                <button type="submit" class="btn btn-success" id="crear">Crear</button>
+            <div align="center">
+                <button class="form-group" type="submit" class="btn btn-light"  id="crear">Crear</button>
             </div>
         </form>
     </div>
