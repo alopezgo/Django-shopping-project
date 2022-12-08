@@ -16,23 +16,31 @@ Supermercado
   <div class="">
     <img src="{% static 'images/catalogo.jpg' %}" class="w-100" alt="" />
   </div>
+
+<section >
+  <hr>
 <div class="container">
     <div class="row text-center">
       {% for p in productos %}
       <div class="col text-center">
-        <div class="bg-primario">
+        <div>
           <img
             class="rounded-circle"
             style="width: 140px; height: 140px"
             src="{{p.imagenProducto}}"
             data-holder-rendered="true"
           />
-          <h3>{{p.nombreProducto}}</h3>
-          <h4>${{p.precioProducto}}</h4>
+          <h5>{{p.nombreProducto}}</h5>
+          <h5>${{p.precioProducto}}</h5>
+          <a href= "{% url 'carrito:Add' p.idProducto %}"type="button" class="btn btn-primary btn-sm">Agregar</a>
+          <a type="button" class="btn btn-secondary btn-sm">Ver más</a>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
 </div>
+</section>
+
 {% endblock content %}
+
