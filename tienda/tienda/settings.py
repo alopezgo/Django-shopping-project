@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'registro',
     'rest_framework',
     'rest_productos',
-    # 'rest_framework.authtoken',
+    'carrito',
 ]
 
 MIDDLEWARE = [
