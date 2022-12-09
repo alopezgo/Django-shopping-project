@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Detalle
+{% endblock title %}
+
+{% block content %}
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4 mt-2 text-center">
+        <h2>Detalle del producto</h2>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <img src="{% static 'images/catalogo.jpg' %}" class="w-100" alt="" />
+  </div>
+<div class="container">
+    <div class="row text-center">
+
+
+      <div class="col text-center">
+        <div class="bg-primario">
+          <img
+            class="rounded-circle"
+            style="width: 140px; height: 140px"
+            src={{productos.imagenProducto}}
+            data-holder-rendered="true"
+          />
+          <h3>{{productos.nombreProducto}}</h3>
+          <h4>${{productos.precioProducto}}</h4>
+          <h3>{{productos.descripcionProducto}}</h3>
+          <h3>categoria: {{productos.categoriaProducto}}</h3>
+          <h3>empresa: {{productos.pymeProducto}}</h3>
+          <br>
+          <a href="#" class="btn btn-info btn-dark">agregar comentario </a>
+          <br> <br>
+          <a href="{% url 'carrito:carrito' %}" class="btn btn-info btn-dark">agregar al carrito</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container mt-5 mb-5">	
+    <div class="card">	
+    <div class="row g-0">	
+    <div class="col-md-6 border-end">	
+    <div class="d-flex flex-column justify-content-center">	
+   
+    <div class="main_image">
+    	<img src="{% static 'images/upload/Mango-Atom-korb.jpg' %}"
+        id="main_product_image" width="350">	</div>
+
+<div class="thumbnail_images">	
+    <ul id="thumbnail">	
+    </ul>	
+</div>	
+</div>	
+</div>	<div class="col-md-6">	
+    <div class="p-3 right-side">	
+    <div class="d-flex justify-content-between align-items-center">	
+    <h3>{{productos.nombreProducto}}</h3>	
+    <span class="heart"><i class='bx bx-heart'></i></span>	
+</div>	
+<div class="mt-2 pr-3 content">	
+    <p>{{productos.descripcionProducto}}</p>	
+</div>	
+<h3>${{productos.precioProducto}}</h3>	
+<div class="ratings d-flex flex-row align-items-center">	
+    <div class="d-flex flex-row">	
+    <i class='bx bxs-star' ></i>	
+    <i class='bx bxs-star' ></i>
+	<i class='bx bxs-star' ></i>
+	<i class='bx bxs-star' ></i>	
+    <i class='bx bx-star' ></i>	
+</div>	
+<span>empresa: {{productos.pymeProducto}}</span>
+	</div>	
+<div class="mt-5">	
+    <span class="fw-bold">categoria: {{productos.categoriaProducto}}</span>	
+</div>	
+<div class="buttons d-flex flex-row mt-5 gap-3">		
+    <button class="btn btn-dark">agegar al carrito</button>	</div>	
+	
+</div>	
+</div>	
+</div>	
+</div>	
+</div> 
+</div>
+
+                  <section style="background-color: antiquewhite;">
+                    <div class="container my-5 py-5 text-dark">
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-6">
+                          <div class="card">
+                            <div class="card-body p-4">
+                              <div class="d-flex flex-start w-100">
+                                <img class="rounded-circle shadow-1-strong me-3"
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="65"
+                                  height="65" />
+                                <div class="w-100">
+                                  <h5>Add a comment</h5>
+                                  <ul class="rating mb-3" data-mdb-toggle="rating">
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                          </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                          </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                          </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                          </svg>
+                                        
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                          </svg>
+                                    </li>
+                                  </ul>
+                                  <div class="form-outline">
+                                    <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                                    <label class="form-label" for="textAreaExample">¿Que te parecio el producto?</label>
+                                  </div>
+                                  <div class="d-flex justify-content-between mt-3">
+                                    <button type="button" class="btn btn-success">
+                                      enviar <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+{% endblock content %}
