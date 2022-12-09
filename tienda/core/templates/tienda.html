@@ -32,6 +32,8 @@ Supermercado
           />
           <h3>{{p.nombreProducto}}</h3>
           <h4>${{p.precioProducto}}</h4>
+          <a href= "{% url 'carrito:Add' p.idProducto %}"type="button" class="btn btn-primary btn-sm">Agregar</a>
+          <a type="button" class="btn btn-secondary btn-sm">Ver más</a>
         </div>
       </div>
       {% endfor %}
