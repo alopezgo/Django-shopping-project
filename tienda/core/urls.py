@@ -9,4 +9,5 @@ urlpatterns = [
     path('contacto', views.contacto, name="contacto"),
     path('nosotros', views.nosotros, name="nosotros"),
     path('miperfil', views.perfil, name="perfil"),
+    path('detalle/<int:idProducto>/',views.vista_producto, name="detalle")
     ]

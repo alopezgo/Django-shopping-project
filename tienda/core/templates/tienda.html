@@ -30,10 +30,8 @@ Supermercado
             src="{{p.imagenProducto}}"
             data-holder-rendered="true"
           />
-          <h5>{{p.nombreProducto}}</h5>
-          <h5>${{p.precioProducto}}</h5>
-          <a href= "{% url 'carrito:Add' p.idProducto %}"type="button" class="btn btn-primary btn-sm">Agregar</a>
-          <a type="button" class="btn btn-secondary btn-sm">Ver más</a>
+          <h3>{{p.nombreProducto}}</h3>
+          <h4>${{p.precioProducto}}</h4>
         </div>
       </div>
       {% endfor %}
@@ -43,4 +41,3 @@ Supermercado
 </section>
 
 {% endblock content %}
-

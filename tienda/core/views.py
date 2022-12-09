@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import Producto, Categoria
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def index(request):
 
@@ -15,6 +16,10 @@ def nosotros(request):
 
 def contacto(request):
     return render(request, 'contacto.html')
+    
+def vista_producto (request, idProducto):
+    producto= Producto.objects.get(idProducto=idProducto)
+    return render(request, 'vistaproducto.html',{'productos': producto})
 
 def tienda(request):
     page_number = request.GET.get('page')
@@ -33,3 +38,10 @@ def tienda(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
+
+def mensaje (request, id):
+    #Producto = get_object_or_404(Producto,id=id)
+
+
+    messages.warning(request, "no se encuentra ningun comentario ")
+    
